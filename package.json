@@ -1,0 +1,22 @@
+{
+  "name": "learncypressb15",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cypress",
+    "mocha",
+    "chai",
+    "jenkins",
+    "Git",
+    "github"
+  ],
+  "author": "Raju",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.0.0"
+  }
+}
