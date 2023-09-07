@@ -4,7 +4,7 @@ describe('Verify Login functionality', () => {
       
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
-        cy.get('input[name="username"]').type("Admin")
+        cy.get('input[name="username3"]').type("Admin")
         cy.get('input[placeholder="Password"]').type("admin123")
         cy.get('button[type="submit"]').click()
         //Assertions 
