@@ -1,6 +1,6 @@
-import logindata from '../fixtures/login.json'
+import logindata from '../../fixtures/login.json'
 
-import addjobtitledata from '../fixtures/addjobtitle.json'
+import addjobtitledata from '../../fixtures/addjobtitle.json'
 
 describe('Verify Add Job title functionality', () => {
 
