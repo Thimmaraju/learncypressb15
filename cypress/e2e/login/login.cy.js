@@ -1,11 +1,12 @@
+import data from '../../fixtures/login.json'
 describe('Verify Login functionality', () => {
 
-    it('Verify Login with Valid creds', () => {
+    it.only('Verify Login with Valid creds', () => {
       
-        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+        cy.visit(Cypress.env("clienturl"))
 
-        cy.get('input[name="username3"]').type("Admin")
-        cy.get('input[placeholder="Password"]').type("admin123")
+        cy.get('input[name="username3"]').type(Cypress.env("username"))
+        cy.get('input[placeholder="Password"]').type(Cypress.env("password"))
         cy.get('button[type="submit"]').click()
         //Assertions 
 

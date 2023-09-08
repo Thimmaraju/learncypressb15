@@ -17,9 +17,9 @@ module.exports = defineConfig({
     },
     env:{
         
-      "username" : "Admin234",
-      "password": "admin123",
-      "clienturl": "www.google.com"
+      "username" : "user_staging",
+      "password": "user_2345",
+      "clienturl": "staging.flipcart.com"
 
     },
 

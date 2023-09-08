@@ -1,11 +1,12 @@
+
 describe('Verify add employee functionality', () => {
 
     it('Verify add employee with valid details', () => {
 
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
-        cy.get('input[name="username"]').type(`Admin`)
-        cy.get('input[placeholder="Password"]').type("admin123")
+        cy.get('input[name="username"]').type(Cypress.env("username"))
+        cy.get('input[placeholder="Password"]').type(Cypress.env("password"))
         cy.get('button[type="submit"]').click()
         //Assertions 
 
