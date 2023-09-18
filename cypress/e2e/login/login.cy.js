@@ -1,12 +1,34 @@
 import data from '../../fixtures/login.json'
-describe('Verify Login functionality', () => {
+describe("Verify Login functionality", () => {
+
+    var username = "Admin"
+    var password = "admin123"
+
+   
 
     it.only('Verify Login with Valid creds', () => {
-      
+        let creds = {
+
+            username: "Admin",
+            password: "admin123"
+        }
+        var menuitems = {
+
+            menu1 : "Admin",
+            menu2 : "PIM",
+            menu3 : "Leave",
+            menu4 : "Time",
+            menu5 : "Recruitment",
+            menu6 : "Dashboard"
+        
+        }
+
+
+        var modules = ["Admin", "PIM","Leave", "Time","Recruitment", "Dashboard"]
         cy.visit(Cypress.env("clienturl"))
 
-        cy.get('input[name="username3"]').type(Cypress.env("username"))
-        cy.get('input[placeholder="Password"]').type(Cypress.env("password"))
+        cy.get('input[name="username"]').type(creds.username)
+        cy.get('input[placeholder="Password"]').type(creds.password)
         cy.get('button[type="submit"]').click()
         //Assertions 
 
@@ -17,8 +39,15 @@ describe('Verify Login functionality', () => {
         cy.url().should('include', 'web/index.php/dashboard/index')
 
         //or
+    //    for (let item in menuitems){
 
-        cy.contains('Dashboard').should('be.visible')
+    //     cy.contains(menuitems[item]).should('be.visible')
+    //    }
+     
+        for (let i of modules){
+
+            cy.contains(i).should('be.visible')
+        }
 
 
     })

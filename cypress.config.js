@@ -19,7 +19,7 @@ module.exports = defineConfig({
         
       "username" : "Admin234",
       "password": "admin123",
-      "clienturl": "www.google.com"
+      "clienturl": "https://opensource-demo.orangehrmlive.com"
 
     },
 
