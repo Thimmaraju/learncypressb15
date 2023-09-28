@@ -1,11 +1,14 @@
 import logindata from '../../fixtures/login.json'
 
-import addjobtitledata from '../../fixtures/addjobtitle.json'
+import addjobtitledata from '../../fixtures/admindata/addjobtitle.json'
+
 
 describe('Verify Add Job title functionality', () => {
 
-    it('Verify adding job title valid inputs', () => {
-      
+    beforeEach(()=>{
+
+        cy.viewport("ipad-2")
+         
         cy.login(logindata.username, logindata.password)
 
         cy.contains("Admin").click()
@@ -13,6 +16,10 @@ describe('Verify Add Job title functionality', () => {
         cy.contains('Job').click()
 
         cy.contains('Job Titles').click()
+    })
+
+    it('Verify adding job title valid inputs', () => {
+     
 
         cy.get('button[class="oxd-button oxd-button--medium oxd-button--secondary"]').click()
 
@@ -29,13 +36,7 @@ describe('Verify Add Job title functionality', () => {
 
     it('Verify Mandotory fields in Add job title page', () => {
 
-        cy.login("Admin", "admin123")
-        
-        cy.contains("Admin").click()
-
-        cy.contains('Job').click()
-
-        cy.contains('Job Titles').click()
+ 
 
         cy.get('button[class="oxd-button oxd-button--medium oxd-button--secondary"]').click()
 
@@ -48,15 +49,6 @@ describe('Verify Add Job title functionality', () => {
 
     it('Verify Mandotory fields in Add job title page', () => {
 
-
-       
-        cy.login("Admin", "admin123")
-
-        cy.contains("Admin").click()
-
-        cy.contains('Job').click()
-
-        cy.contains('Job Titles').click()
 
         cy.get('button[class="oxd-button oxd-button--medium oxd-button--secondary"]').click()
 

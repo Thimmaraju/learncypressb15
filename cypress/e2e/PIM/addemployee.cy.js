@@ -1,3 +1,7 @@
+import login from "../../pageobjects/loginpage.po"
+import dashboard from '../../pageobjects/dashbaordpage.po'
+import addemployee from "../../pageobjects/pim/addemployee"
+import addemployeedata from '../../fixtures/createemployee.json'
 
 describe('Verify add employee functionality', () => {
 
@@ -5,9 +9,9 @@ describe('Verify add employee functionality', () => {
 
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
-        cy.get('input[name="username"]').type(Cypress.env("username"))
-        cy.get('input[placeholder="Password"]').type(Cypress.env("password"))
-        cy.get('button[type="submit"]').click()
+        cy.get(login.userNameInput()).type(Cypress.env("username"))
+        cy.get(login.passwordInput()).type(Cypress.env("password"))
+        cy.get(login.loginBtn()).click()
         //Assertions 
 
         cy.url().should('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
@@ -18,19 +22,11 @@ describe('Verify add employee functionality', () => {
 
         //or
 
-        cy.contains('Dashboard').should('be.visible')
+        cy.contains(dashboard.dashboardmenuitem()).should('be.visible')
 
-        cy.contains('PIM').click()
+        cy.contains(dashboard.pimMenuItem).click()
 
-        cy.contains('Add Employee').click()
-
-        cy.get('input[name="firstName"]').type("Ravikumar")
-
-        cy.get('input[name="lastName"]').type("M")
-
-        cy.get('button[type="submit"]').click()
-
-        cy.contains('Successfully Saved').should('be.visible')
+        addemployee.createEmployee(addemployeedata.firstname, addemployeedata.lastname)
 
 
     })
