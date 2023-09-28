@@ -1,4 +1,4 @@
-import data from '../../fixtures/login.json'
+import logindata from '../../fixtures/login.json'
 
 import login from '../../pageobjects/loginpage.po'
 
@@ -30,8 +30,8 @@ describe("Verify Login functionality", () => {
         var modules = ["Admin", "PIM","Leave", "Time","Recruitment", "Dashboard"]
         cy.visit(Cypress.env("clienturl"))
 
-        cy.xpath(login.userNameInput()).type(creds.username)
-        cy.get(login.passwordInput()).type(creds.password)
+        cy.xpath(login.userNameInput()).type(logindata.username)
+        cy.get(login.passwordInput()).type(logindata.password)
         cy.get(login.loginBtn()).click()
         //Assertions 
 
@@ -59,7 +59,7 @@ describe("Verify Login functionality", () => {
         
         cy.visit("/")
 
-        cy.get(login.userNameInput()).type("Admin")
+        cy.xpath(login.userNameInput()).type("Admin")
         cy.get(login.passwordInput()).type("fvjdhbfj")
         cy.get(login.loginBtn()).click()
 
@@ -73,7 +73,7 @@ describe("Verify Login functionality", () => {
 
         cy.visit("/web/index.php/auth/login")
 
-        cy.get(login.userNameInput()).type("fudbfw")
+        cy.xpath(login.userNameInput()).type("fudbfw")
         cy.get(login.passwordInput()).type("admin123")
         cy.get(login.loginBtn()).click()
 
@@ -86,7 +86,7 @@ describe("Verify Login functionality", () => {
         
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
-        cy.get(login.userNameInput()).type("fjbjvb")
+        cy.xpath(login.userNameInput()).type("fjbjvb")
         cy.get(login.passwordInput()).type("fvjdhbfj")
         cy.get(login.loginBtn()).click()
 
