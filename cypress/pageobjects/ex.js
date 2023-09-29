@@ -96,20 +96,51 @@
 // var indexofseclarge = x.indexOf(secondlargetnumber)
 // console.log(indexofseclarge)
 
-number = 100110011
+// number = 100110011
 
-str = String(100110011)
-var count = 0
-var count2 = 0
-for (let i = 0; i <= str.length; i++) {
-    if (str[i] == 1) {
-        count = count + 1
-    }
-    if (str[i] == 0) {
-        count2 = count2 + 1
-    }
-}
+// str = String(100110011)
+// var count = 0
+// var count2 = 0
+// for (let i = 0; i <= str.length; i++) {
+//     if (str[i] == 1) {
+//         count = count + 1
+//     }
+//     if (str[i] == 0) {
+//         count2 = count2 + 1
+//     }
+// }
 
-console.log(count)
+// console.log(count)
 
-console.log(count2)
+// console.log(count2)
+//============================
+// function evenOrOdd(number) {
+//     if (number % 2 === 0) {
+//         return "Even";
+//     } else {
+//         return "Odd";
+//     }
+// }
+// // Example usage
+// console.log(evenOrOdd(8));
+// console.log(evenOrOdd(11));
+//==============================================
+// function removeduplicharacter(str) {
+//     var answer = "";
+//     var freq = [];
+//     for (i = 0; i < str.length; i++) {
+//         let char = str[i];
+//         if (freq[char]) {
+//             freq[char]++;
+//         } else {
+//             freq[char] = 1
+//             answer = answer + char;
+//         }
+//     }
+
+//     return answer;
+// }
+
+// console.log(removeduplicharacter("Thimmaraju"))
+//=========================================================
+

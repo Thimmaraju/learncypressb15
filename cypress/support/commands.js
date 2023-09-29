@@ -25,27 +25,36 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 
-Cypress.Commands.add('login', (username, password) => { 
-    
+Cypress.Commands.add('login', (username, password) => {
+
 
     cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
-        cy.get('input[name="username"]').type(username)
-        cy.get('input[placeholder="Password"]').type(password)
-        cy.get('button[type="submit"]').click()
-        //Assertions 
+    cy.get('input[name="username"]').type(username)
+    cy.get('input[placeholder="Password"]').type(password)
+    cy.get('button[type="submit"]').click()
+    //Assertions 
 
-        cy.url().should('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
+    cy.url().should('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
 
-        //or
+    //or
 
-        cy.url().should('include', 'web/index.php/dashboard/index')
+    cy.url().should('include', 'web/index.php/dashboard/index')
 
-        //or
+    //or
 
-        cy.contains('Dashboard').should('be.visible')
+    cy.contains('Dashboard').should('be.visible')
+
+})
+
+Cypress.Commands.add('navigatetoAddJobPage', () => {
+
+    cy.contains("Admin").click()
+
+    cy.contains('Job').click()
+
+    cy.contains('Job Titles').click()
+    cy.get('button[class="oxd-button oxd-button--medium oxd-button--secondary"]').click()
 
 
-
-
- })
+})

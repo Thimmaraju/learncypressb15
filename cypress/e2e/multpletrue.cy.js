@@ -8,7 +8,7 @@ describe('Demo of multiple true', () => {
       
     })
 
-    it('Demo test for force true', () => {
+    it.only('Demo test for force true', () => {
 
         cy.visit('https://www.cypress.io/')
 
