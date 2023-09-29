@@ -19,18 +19,18 @@ const availablefixtures = [
 ]
 
 
-describe('Automation Test Suite - create employees', ()=> {
+describe('Automation Test Suite - create employees', function(){
     //loop through both the fixtues 
     availablefixtures.forEach((afixture) => {
         describe(afixture.context, () => {
             //Mostly used for Setup Part
             before(function () {
-                cy.fixture(afixture.name).then((data)=> {
+                cy.fixture(afixture.name).then(function (data) {
                     this.data = data;
                 })
             })
 
-            it('Cypress Test Case - add employee', ()=> {
+            it('Cypress Test Case - add employee', function () {
                
                 cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
@@ -50,8 +50,7 @@ describe('Automation Test Suite - create employees', ()=> {
                 cy.contains(dashboard.dashboardmenuitem()).should('be.visible')
         
                 cy.contains(dashboard.pimMenuItem).click()
-
-                cy.log(this.data.firstname)        
+       
                 addemployee.createEmployee(this.data.firstname, this.data.lastname)
         
         
