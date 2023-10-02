@@ -22,7 +22,7 @@ describe('Checkboxes', () => {
 
       //  cy.get('#check input[type="checkbox"]').uncheck(["HTML","Javascript"])
 
-      //cy.get('input[value="fullstack"]').check().should('be.checked')
+      cy.get('input[value="fullstack"]').check().should('be.checked')
         
     })
   })

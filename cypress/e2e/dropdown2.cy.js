@@ -10,7 +10,7 @@ describe("select box", () => {
        
       cy.visit("https://chercher.tech/practice/dropdowns");
 
-      cy.get("#order-changed").select('Microsoft');
+      cy.get("#order-changed").select(2);
 
     });
     
