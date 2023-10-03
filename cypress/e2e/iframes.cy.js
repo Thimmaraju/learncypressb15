@@ -16,11 +16,11 @@ describe('Automation - Working With Iframe', function () {
 
         cy.visit("https://jqueryui.com/checkboxradio/")
 
-        cy.get('iframe[class="demo-frame"]').then((iframe) =>{
+        cy.get('iframe[class="demo-frame"]').then(($iframe) =>{
 
-           let x = iframe.contents().find('label[for="checkbox-1"]')
+           let checkbox1 = $iframe.contents().find('label[for="checkbox-1"]')
 
-           cy.wrap(x).click()
+           cy.wrap(checkbox1).click()
         })
 
        // cy.contains("Download").click()

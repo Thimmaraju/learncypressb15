@@ -3,7 +3,7 @@
 describe('Automation - Working Mouse events', function () {
 
 
-    it.only('Cypress Test Case - Understanding Right click, Mouse over, doubleclick', function () {
+    it('Cypress Test Case - Understanding Right click, Mouse over, doubleclick', function () {
 
       
   
@@ -20,7 +20,7 @@ describe('Automation - Working Mouse events', function () {
       cy.log("Hovering on Tutorials")
       
       cy.wait(2000)
-      cy.contains('Contact').dblclick();
+      cy.contains('Ask Doubt').dblclick({force:true});
     })
 
 

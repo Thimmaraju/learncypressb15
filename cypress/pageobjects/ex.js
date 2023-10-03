@@ -188,14 +188,64 @@
 //========================================
 
 
-function reverseInt(int){
-    let intRev = "";
-    let start = int < 0 ? 1 : 0;
-    for (let i=start; i<int.length; i++) {
-        intRev = int[i] + intRev;
-    }
-    return int < 0 ? '-' + intRev : intRev;
+// function reverseInt(int){
+//     let intRev = "";
+//     let start = int < 0 ? 1 : 0;
+//     for (let i=start; i<int.length; i++) {
+//         intRev = int[i] + intRev;
+//     }
+//     return int < 0 ? '-' + intRev : intRev;
+// }
+
+// console.log("12345 in reverse is:  " + reverseInt("12345"));
+// console.log("-12345 in reverse is: " + reverseInt("-12345"));
+
+//===================================================
+
+// const str = "big black bug bit a big black dog on his big black nose";
+// const findDuplicateWords = str => {
+//     const strArr = str.split(" ");
+//     const res = [];
+//     for (let i = 0; i < strArr.length; i++) {
+//         if (strArr.indexOf(strArr[i]) !== strArr.lastIndexOf(strArr[i])) {
+//             if (!res.includes(strArr[i])) {
+//                 res.push(strArr[i]);
+//             };
+//         };
+//     };
+//     return res.join(" ");
+// };
+// console.log(findDuplicateWords(str));
+//----------------------------------------------------------
+// const date = new Date();
+
+// // get the date as a string
+// const n = date.toDateString();
+
+// // get the time as a string
+// const time = date.toLocaleTimeString();
+
+// // display date
+// console.log('Date: ' + n);
+
+// // display time
+// console.log('Time: ' + time);
+
+//===================================================================
+
+
+const str = "big black bug bit a big black dog on his big black nose";
+
+arr = str.split(" ")
+console.log(arr)
+
+finalstr = ''
+
+for (i = 0; i <= arr.length - 1; i++) {
+
+    var str2 = arr[i].split("").reverse().join("");
+
+    finalstr = finalstr + " " + str2
 }
 
-console.log("12345 in reverse is:  " + reverseInt("12345"));
-console.log("-12345 in reverse is: " + reverseInt("-12345"));
+console.log(finalstr.trim())

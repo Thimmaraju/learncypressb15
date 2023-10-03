@@ -34,7 +34,7 @@ describe('Automation Test Suite - create employees', function(){
                
                 cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
-                cy.get(login.userNameInput()).type(Cypress.env("username"))
+                cy.xpath(login.userNameInput()).type(Cypress.env("username"))
                 cy.get(login.passwordInput()).type(Cypress.env("password"))
                 cy.get(login.loginBtn()).click()
                 //Assertions 
