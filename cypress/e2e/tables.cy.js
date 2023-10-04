@@ -25,7 +25,7 @@ describe('Automation - Working With Tables in webpage', function () {
 
                 cy.log(text)
 
-                //expect(text).to.equal("1469.40")
+                expect(text).to.equal("1540.45")
             })
 
              cy.get('td').eq(0).should('contain.text', 'Bajaj Finserv Ltd.')
@@ -34,9 +34,9 @@ describe('Automation - Working With Tables in webpage', function () {
 
 
 
-//     //    //Validate data based on Cell Values 
+        //Validate data based on Cell Values 
 
-        cy.get('.dataTable >tbody').contains('Wipro ').parent().parent().within(() => {
+        cy.get('.dataTable >tbody').contains('State Bank of India ').parent().parent().within(() => {
 
             cy.get('td').eq(3).then((ele) => {
 
@@ -44,9 +44,20 @@ describe('Automation - Working With Tables in webpage', function () {
             })
         })
 
-//    // Get entire Table Data
+  // Get entire Table Data
 
-        cy.get('.dataTable >tbody tr')
+        cy.get('.dataTable> tbody > tr:nth-child(28)')
+            .each((rows) => {
+
+                cy.wrap(rows).within((celldata) => {
+
+                    cy.log(celldata.text())
+
+                    
+                })
+            })
+
+            cy.get('.dataTable> tbody > tr')
             .each((rows) => {
 
                 cy.wrap(rows).within((celldata) => {

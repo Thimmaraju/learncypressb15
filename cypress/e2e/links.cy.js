@@ -14,44 +14,46 @@ describe('Automation - Working With Links', function () {
       
          cy.url().should("include", "wiki/Main_Page")
       
-    //     cy.get('.mainpage-welcome-sitename').should('contain.text', 'Wikimedia Commons');
+         cy.get('.mainpage-welcome-sitename').should('contain.text', 'Wikimedia Commons');
      
      
-    //       cy.get('a').should('have.length', 685)
+         cy.get('a').should('have.length', 691)
+        
+        
+   //Interview question
 
-    //       //Interview question
+      cy.get('a').its('length').then((elelength) => {
+        var lengthcount = elelength
+        cy.log(lengthcount)
+        expect(lengthcount).to.equal(691)
+      })
 
-    //   cy.get('a').its('length').then((elelength) => {
-    //     var lengthcount = elelength
-    //     cy.log(lengthcount)
-    //     expect(lengthcount).to.equal(685)
-    //   })
-
-    //   cy.get('.vector-menu-content-list').eq(5).find('a').its('length').then((elelength) => {
-    //     cy.log(elelength)
-    //     expect(elelength).to.equal(5)
-    //   })
-
-
-    //   cy.get('.mw-halign-right +div').last().then((txt) =>{
-
-    //        var eletext = txt.text()
-
-    //        cy.log(eletext)
-    //   })
-
-    //   cy.get('.vector-menu-content-list').eq(5).find('a').then((txt) => {
-    //     var x = txt.text()
-    //     cy.log(x)
-    //   })
+      cy.get('.vector-menu-content-list').eq(5).find('a').its('length').then((elelength) => {
+        cy.log(elelength)
+        expect(elelength).to.equal(5)
+      })
 
 
-    //   cy.get('a[href="/wiki/Main_Page"]>span').last().then((txt) => {
-    //     let y = txt.text()
-    //     cy.log(y)
-    //     expect(y).to.equal("Main page")
-    //     cy.writeFile('cypress/fixtures/module2/test4.txt',y);
-    //   })
+      cy.get('.mw-halign-right +div').last().then((txt) =>{
+
+           var eletext = txt.text()
+
+           cy.log(eletext)
+           cy.writeFile('cypress/fixtures/module2/test4.txt',eletext);
+      })
+
+      cy.get('.vector-menu-content-list').eq(5).find('a').then((txt) => {
+        var x = txt.text()
+        cy.log(x)
+      })
+
+
+      cy.get('a[href="/wiki/Main_Page"]>span').last().then((txt) => {
+        let y = txt.text()
+        cy.log(y)
+        expect(y).to.equal("Main page")
+        //cy.writeFile('cypress/fixtures/module2/test4.txt',y);
+      })
 
      })
 
