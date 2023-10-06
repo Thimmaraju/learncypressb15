@@ -27,9 +27,9 @@ describe('Automation - Write file and Read file ', function () {
 
     it.only('Cypress Test Case - Validation of Data both Text file and Json ', function () {
         
-        cy.readFile('cypress/fixtures/addjobtitle.json').should('exist')
+        cy.readFile('cypress/fixtures/createemployee.json').should('exist')
 
-        cy.readFile('cypress/fixtures/addjobtitle.json').its('jobtitle').should('eq','Director Delivery')
+        cy.readFile('cypress/fixtures/createemployee.json').its('firstname').should('eq','Poornima')
 
          cy.readFile('cypress/fixtures/module1/test6.json').its('firstname').should('eq','G')
 

@@ -1,6 +1,6 @@
 ///<reference types="cypress"/>
 
-import data from "../../fixtures/ExceltoJson/user_data.json"
+import data from "../fixtures/ExceltoJson/user_data.json"
 
 describe('Automation - Working With Data driven testing json', function () {
 

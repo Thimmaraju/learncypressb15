@@ -1,12 +1,41 @@
 ///<reference types="cypress"/>
 
-import  postdata from '../../fixtures/body.json'
+
 
 describe('Automation - API Automation - GET. PUT, POST and Delete Methods', function () {
 
+   
+  it("Get users", ()=>{
+    cy.request("GET", "https://reqres.in/api/users?page=2").then((response)=>{
+	
+    expect(response.status).to.equal(200)
+    expect(response.body.data[0].id).equal(7);
+    expect(response.body.data[5].email).equal("rachel.howell@reqres.in");
+
+    expect(response.body.data[0].first_name).equal("Michael");
+
+    expect(response.body.support.url).equal("https://reqres.in/#support-heading");
+
+    expect(response.body).to.have.property('total_pages');
+    expect(response.body).to.have.property('total_pages', 2);
+
+    expect(response.body).to.have.property("page", 2)
+
+    expect(response.body).to.have.property("total", 12)
+    expect(response.body).to.have.property("per_page", 6)
+
+    expect(response.body).to.have.property('total_pages');
+    expect(response.body).to.have.property('total_pages', 2);
+    expect(response.body.data[4].email).to.equal("george.edwards@reqres.in")
+    expect(response.body.support.url).to.equal("https://reqres.in/#support-heading")
+ })
+
+  })
+  
+  
   var x ;
 
-   it.only("Sample API Test",()=>{
+   it("Sample API Test",()=>{
 
     cy.request("GET", "https://reqres.in/api/users?page=2").then((response) =>{
 
@@ -26,34 +55,57 @@ describe('Automation - API Automation - GET. PUT, POST and Delete Methods', func
     cy.request({
 
       method:'GET', 
-      url: 'https://reqres.in/api/users?page=2'
-   
+      url: 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees?limit=50&offset=0&model=detailed&includeEmployees=onlyCurrent&sortField=employee.firstName&sortOrder=ASC',
+      headers:{
+
+        "Cookie":"orangehrm=cc74ccd83ef22913ca6644a959afd0b1",
+        "Host":"opensource-demo.orangehrmlive.com",
+        "Referer":"https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList"
+      },
+      body:{}  
       
 
     }).then((response) => {
 
       expect(response.status).equal(200);
-      //comment for demo
+      cy.log(response.body)
 
-      expect(response.body.data[0].id).equal(7);
-       expect(response.body.data[5].email).equal("rachel.howell@reqres.in");
+      cy.writeFile("cypress/fixtures/res.txt", response.body)
 
-       expect(response.body.data[0].first_name).equal("Michael");
-
-       expect(response.body.support.url).equal("https://reqres.in/#support-heading");
-
-       expect(response.body).to.have.property('total_pages');
-       expect(response.body).to.have.property('total_pages', 2);
-
-       expect(response.body).to.have.property("page", 2)
-
-       expect(response.body).to.have.property("total", 12)
-       expect(response.body).to.have.property("per_page", 6)
+     
     })
 
   })
 
   it.only('Cypress Test Case - Understanding GET Method', function () {
+
+    cy.request({
+
+      method:'DELETE', 
+      url: 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees',
+      headers:{
+
+        "Cookie":"orangehrm=cc74ccd83ef22913ca6644a959afd0b1",
+        "Host":"opensource-demo.orangehrmlive.com",
+        "Referer":"https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList"
+      },
+      body:{"ids":[41]}
+      
+
+    }).then((response) => {
+
+      expect(response.status).equal(200);
+      cy.log(response.body)
+
+      cy.writeFile("cypress/fixtures/res.txt", response.body)
+
+     
+    })
+
+  })
+
+
+  it('Cypress Test Case - Understanding GET Method', function () {
 
     cy.request('GET', 'https://reqres.in/api/users/2').then((response) => {
 
@@ -88,12 +140,12 @@ describe('Automation - API Automation - GET. PUT, POST and Delete Methods', func
 
 
 
-    // const payload = {
-    //   "name": "Raju",
-    //   "job": "Trainer"
-    // }
+    const payload = {
+      "name": "Raju",
+      "job": "Trainer"
+    }
 
-    cy.request('POST', 'https://reqres.in/api/users', postdata).then((response) => {
+    cy.request('POST', 'https://reqres.in/api/users', payload).then((response) => {
 
       expect(response.status).equal(201);
       expect(response.body).to.have.property("name", "Raju")
@@ -106,13 +158,13 @@ describe('Automation - API Automation - GET. PUT, POST and Delete Methods', func
       cy.log(time)
       cy.log(x)
 
-       cy.writeFile('cypress/fixtures/module1/test10.json', { "Id": idvalue });
+       cy.writeFile('cypress/fixtures/module1/test10.json', { "Id": x });
 
     })
 
   })
 
-  it.only('Cypress Test Case - Understanding PUT Method', function () {
+  it('Cypress Test Case - Understanding PUT Method', function () {
 
     const payload = {
       "name": x,
@@ -134,7 +186,7 @@ describe('Automation - API Automation - GET. PUT, POST and Delete Methods', func
   })
 
 
-  it.only('Cypress Test Case - Understanding DELETE Method', function () {
+  it('Cypress Test Case - Understanding DELETE Method', function () {
 
 
     cy.request('DELETE', 'https://reqres.in/api/users/2').then((response) => {

@@ -1,4 +1,5 @@
-import login from '../../Pages/loginpage.po'
+import login from '../pageobjects/loginpage.po'
+import addemployee from '../pageobjects/pim/addemployee.po'
 
 
 describe('Validate Orange HRM Login functionality', function () {
@@ -8,7 +9,10 @@ describe('Validate Orange HRM Login functionality', function () {
 
     cy.session("Login session", () => {
       cy.visit("/web/index.php/auth/login")
-      login.loginwithcreds("Admin", "admin123")
+    cy.xpath(login.userNameInput()).type('Admin')
+    cy.get(login.passwordInput()).type('admin123')
+
+    cy.get(login.loginBtn()).click()
     })
 
   })
@@ -21,6 +25,16 @@ describe('Validate Orange HRM Login functionality', function () {
     cy.get('input[class="oxd-input oxd-input--active"]').eq(1).type("Senior Analyst"+r)
 
     cy.get('button[type="submit"]').click()
+
+
+  })
+
+  it.only('Validate Add employee ', function () {
+
+
+    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee')
+
+    cy.get(addemployee.firstNameInput()).type("Raju")
 
 
   })
