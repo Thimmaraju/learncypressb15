@@ -7,9 +7,11 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
   
+    "specPattern": "**/*.feature",
+    "projectId": "o9asqr",
     "excludeSpecPattern": "cypress/e2e/cypresshooks.cy.js",
     "video":true,
-    "videoCompression": 51,
+    "videoCompression": 0,
     "videosFolder": "cypress/Girish",
     "baseUrl" : "https://opensource-demo.orangehrmlive.com",
      "viewportWidth":1920,
@@ -31,6 +33,7 @@ module.exports = defineConfig({
 
     setupNodeEvents(on, config) {
 
+      return require('./cypress/plugins/index.js')(on, config)
       require('cypress-mochawesome-reporter/plugin')(on);
       on('task', {downloadFile})
       allureWriter(on, config);

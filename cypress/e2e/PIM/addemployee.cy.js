@@ -1,6 +1,6 @@
 import login from "../../pageobjects/loginpage.po"
 import dashboard from '../../pageobjects/dashbaordpage.po'
-import addemployee from "../../pageobjects/pim/addemployee"
+import addemployee from "../../pageobjects/pim/addemployee.po"
 import addemployeedata from '../../fixtures/createemployee.json'
 
 describe('Verify add employee functionality', () => {
